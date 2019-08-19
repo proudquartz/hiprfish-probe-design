@@ -47,7 +47,7 @@ The pipeline requires a local copy of the 16SMicrobial database from NCBI.
        * `OTU`: boolean to indicate whether to group 16S sequences only by their similarity. Generally set to `F` for ease of taxonomic interpretation of the probe designs, but could be useful if very high taxonomic resolution is desired. 
        * `TPN`: number of top probes to select for each taxon, if the probe selection method is set to `TopN`
        * `FREQLL`: minimum abundance threshold. Default is zero, and is generally left at zero. Can be increased in situations where the in silico taxonomic coverage is not as good as desired. A higher value means increasing the probe design space for the more abundance sequences at the risk of those probes mishybridizing to the lower abundance taxa in the experiment.
-       * `BOT`: minimum blast on target rate thrshold. Probes with blast on target values lower than this value is considered *promiscuous*, and is not included in the final probe pool.
+       * `BOT`: minimum blast on target rate threshold. Probes with blast on target values lower than this value is considered *promiscuous*, and is not included in the final probe pool.
        * `BARCODESELECTION`: method for barcode assignment to taxa. Available options are:
          1. MostSimple: assign barcodes by barcode complexity, starting with the simplest ones. Barcodes with more bits are considered more complex. 
          2. Random: randomly assign barcodes to taxa
