@@ -6,8 +6,10 @@ Probe design pipeline for HiPR-FISH experiments
 This pipeline enables desgin of complex oligo probe sets used for highly multiplexed FISH experiments on microbial communities. The main pipeline is a snakemake workflow.
 
 ## Input
-
-The required input is a FASTA file containing full length 16S sequences of the community to be probed. This file can be curated from public databases, or it can come from your own long read sequencing datasets, such as those from PacBio.
+1. Simulation summary file
+   - A csv file containing all the designs to be run.
+2. FASTA file
+   - A FASTA file containing full length 16S sequences of the community to be probed. This file can be curated from public databases, or it can come from your own long read sequencing datasets, such as those from PacBio.
 
 ## Required resources
 
