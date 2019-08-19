@@ -26,7 +26,16 @@ The pipeline requires a local copy of the 16SMicrobial database from NCBI.
 1. Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html),
 2. Install the environment by running `conda env create -f hiprfish.yml` in a Terminal window,
 3. Activate the environment by running `source activate hiprfish`,
-4. Edit the `hiprfish_config.json file` to point the pipeline to the correct directories.
+4. Edit the `hiprfish_config.json file` to point the pipeline to the correct directories. 
+   - `__default__`
+      * `SCRIPTS_PATH`: path to the folder that contains all the scripts
+      * `DATA_DIR`: path to the folder that contains input folders and files
+   - `blast`
+      * `16s_db`: path to the local copy of NCBI 16SMicrobial database
+   -  `usearch`
+      * `path`: path to the usearch program
+   - `simulations`
+      * `simulation_table`: path to the simulation summary file
 
 ## Running the pipeline
 Run `snakemake --configfile hiprfish_config.json -j n`, where `n` is the number of cores to be used. If the pipeline excuted without errors, you should see a file called `simulation_table_test_results.csv` in the same directory where you put the `simulation_table_test.csv` file. It can be useful to run a design at a high taxonomic rank (phylum, for example) to make sure that the pipeline runs correctly with the input files. 
