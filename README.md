@@ -19,5 +19,5 @@ The pipeline will create a folder, containing selected probe summary files for e
 
 ## Before running the pipeline
 1. Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
-2. Install the environment using 'conda env create -f hiprfish.yml'
-3. Activate the environment using 'source activate hiprfish'
+2. Install the environment using `conda env create -f hiprfish.yml`
+3. Activate the environment using `source activate hiprfish`
