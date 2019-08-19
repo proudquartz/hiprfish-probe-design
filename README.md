@@ -3,7 +3,7 @@ Probe design pipeline for HiPR-FISH experiments
 
 ## Overview
 
-This pipeline enables desgin of complex oligo probe sets used for highly multiplexed FISH experiments on microbial communities. The main pipeline is a snakemake workflow.
+This pipeline enables design of complex oligo probe sets used for highly multiplexed FISH experiments on microbial communities. The main pipeline is a snakemake workflow.
 
 ## Required resources
 
