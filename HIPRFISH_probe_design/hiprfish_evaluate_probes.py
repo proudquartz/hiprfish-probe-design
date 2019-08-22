@@ -9,26 +9,16 @@ import argparse
 import pandas as pd
 import subprocess
 import os
-import multiprocessing
 import glob
 import re
 import itertools
-from SetCoverPy import setcover
 import numpy as np
-import random
 from ete3 import NCBITaxa
-from SetCoverPy import setcover
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio.Alphabet import IUPAC, generic_dna
 from Bio.Blast.Applications import NcbiblastnCommandline
-from ete3 import NCBITaxa
-import re
-import time
-import smtplib
-from joblib import Parallel, delayed
-import tables
 os.environ['OMP_NUM_THREADS'] = '1'
 
 ###############################################################################################################

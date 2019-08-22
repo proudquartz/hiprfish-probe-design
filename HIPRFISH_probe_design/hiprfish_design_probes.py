@@ -9,20 +9,15 @@ import argparse
 import pandas as pd
 import subprocess
 import os
-import multiprocessing
 import glob
 import re
-import itertools
 import numpy as np
-import random
 from ete3 import NCBITaxa
-from SetCoverPy import setcover
 from Bio import SeqIO
 from Bio.Seq import Seq
 from Bio.SeqRecord import SeqRecord
 from Bio.Alphabet import IUPAC, generic_dna
 from Bio.Blast.Applications import NcbiblastnCommandline
-from joblib import Parallel, delayed
 
 ###############################################################################################################
 # helper functions

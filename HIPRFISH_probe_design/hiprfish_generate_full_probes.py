@@ -11,7 +11,6 @@ import os
 import glob
 import re
 import numpy as np
-import random
 import subprocess
 from Bio import SeqIO
 from Bio.Seq import Seq
