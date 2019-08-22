@@ -13,13 +13,15 @@ The pipeline requires a local copy of the 16SMicrobial database from NCBI.
 1. Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html),
 2. Install the environment by either
    - Running `conda env create -f hiprfish.yml` in a Terminal window,\
-   OR
+  
+  OR\
+  
    - Running the following command
-     `conda env create hiprfish python=3.5`
-     `conda install pandas`
-     `conda install -c anaconda biopython`
-     `conda install -c etetoolkit ete3`
-     `pip install SetCoverPy`
+     `conda env create hiprfish python=3.5`\
+     `conda install pandas`\
+     `conda install -c anaconda biopython`\
+     `conda install -c etetoolkit ete3`\
+     `pip install SetCoverPy`\
 
 3. Activate the environment by running `source activate hiprfish`,
 4. Edit the `hiprfish_config.json file` to point the pipeline to the correct directories. 
