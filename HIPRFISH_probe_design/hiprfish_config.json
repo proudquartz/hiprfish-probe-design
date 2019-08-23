@@ -12,6 +12,10 @@
     {
         "path": "/home/hs673/Tools/usearch"
     },
+    "primer3":
+    {
+        "path": "/programs/primer3-2.3.5/src/primer3_core"
+    },
     "simulations" :
     {
         "simulation_table" : "/workdir/hs673/Runs/V1/Samples/HIPRFISH_2/simulation_table_test_0.csv"

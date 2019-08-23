@@ -267,8 +267,8 @@ sim_output_filename = get_simulation_summary_filenames(sim_input_filename)
 design_list, sim_tab = get_simulation_list(sim_input_filename, data_dir)
 full_length_probe_summary_list = get_full_length_probe_summary_list(sim_tab)
 usearch_path = config['usearch']['path']
+primer3_program_path = config['primer3']['path']
 design_dir = [data_dir + '/simulation/' + dsgn for dsgn in design_list]
-
 for dsgn_dir in design_dir:
     if not os.path.exists(dsgn_dir):
         os.makedirs(dsgn_dir)
@@ -291,14 +291,16 @@ rule design_probes:
         sample = "{sample}",
         target_rank = "{target_rank}",
         similarity = "{similarity}",
-        ud = usearch_path
+        ud = usearch_path,
+        p3d = primer3_program_path
     shell:
         "python3 {config[__default__][SCRIPTS_PATH]}/hiprfish_design_probes.py "
         "{input.fasta_filename} {input.sample_dir} "
         "-db {config[blast][16s_db]} "
         "-t {params.target_rank} "
         "-s {params.similarity} "
-        "-ud {params.ud}"
+        "-ud {params.ud} "
+        "-p3d {params.p3d}"
 
 rule blast_probes:
     input:

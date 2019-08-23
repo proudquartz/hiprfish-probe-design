@@ -184,7 +184,7 @@ def combine_fasta_files(input_file_directory, file_ext, output_file_name):
     return
 
 # probe design
-def probe_design(input_fasta_filename, outdir, target_rank, min_tm, include_start, include_end):
+def probe_design(primer3_program_path, input_fasta_filename, outdir, target_rank, min_tm, include_start, include_end):
 
     # running the function
     settings_file_path = outdir + '/primer3_settings.txt'
@@ -235,7 +235,7 @@ def probe_design(input_fasta_filename, outdir, target_rank, min_tm, include_star
         print('No probe design was rerun')
     else:
         print('Probe design was run')
-        subprocess.check_call(['/programs/primer3-2.3.5/src/primer3_core', '-p3_settings_file', settings_file_path, '-output', output_file_path, '-format_output', primer3_input_file_path])
+        subprocess.check_call([primer3_program_path, '-p3_settings_file', settings_file_path, '-output', output_file_path, '-format_output', primer3_input_file_path])
 
     return
 
@@ -337,8 +337,9 @@ def main():
 
     parser.add_argument('-e', '--include_end', dest = 'include_end', type = int, default = 50, help = 'Ending position of included region for probe design, measured from the end of 16S rRNA molecules')
 
-    parser.add_argument('-ud', '--usearch_dir', dest = 'ud', type = str, default = '', help = 'Ending position of included region for probe design, measured from the end of 16S rRNA molecules')
+    parser.add_argument('-ud', '--usearch_dir', dest = 'ud', type = str, default = '', help = 'usearch path')
 
+    parser.add_argument('-p3d', '--primer3_dir', dest = 'p3d', type = str, default = '', help = 'primer3 path')
     args = parser.parse_args()
     rank_dir = args.output_directory + '/' + args.target_rank + '/'
     if args.otu == 'F':
