@@ -13,18 +13,21 @@ The pipeline requires a local copy of the 16SMicrobial database from NCBI.
 1. Install [Miniconda](https://docs.conda.io/en/latest/miniconda.html),
 2. Install the environment by either
    - Running `conda env create -f hiprfish.yml` in a Terminal window,\
-  
+
   OR
-  
+
    - Running the following command\
      `conda env create hiprfish python=3.5`\
      `conda install pandas`\
      `conda install -c anaconda biopython`\
      `conda install -c etetoolkit ete3`\
+     `conda install snakemake`\
+     `conda install blast`\
+     `source activate hiprfish`\
      `pip install SetCoverPy`
 
 3. Activate the environment by running `source activate hiprfish`,
-4. Edit the `hiprfish_config.json file` to point the pipeline to the correct directories. 
+4. Edit the `hiprfish_config.json file` to point the pipeline to the correct directories.
    - `__default__`
       * `SCRIPTS_PATH`: path to the folder that contains all the scripts
       * `DATA_DIR`: path to the folder that contains input folders and files
@@ -55,14 +58,14 @@ The pipeline requires a local copy of the 16SMicrobial database from NCBI.
          4. `MinOverlap`: select all probes that are specific and only specific to its target taxon with minimum overlap in their target coverage
          5. `TopN`: select the top *n* probes for each taxa
        * `PRIMERSET`: primer sets to include in the final probes. There are three sets (A, B, and C) availble in the current version. User specific primer sets can also be added if necessary.
-       * `OTU`: boolean to indicate whether to group 16S sequences only by their similarity. Generally set to `F` for ease of taxonomic interpretation of the probe designs, but could be useful if very high taxonomic resolution is desired. 
+       * `OTU`: boolean to indicate whether to group 16S sequences only by their similarity. Generally set to `F` for ease of taxonomic interpretation of the probe designs, but could be useful if very high taxonomic resolution is desired.
        * `TPN`: number of top probes to select for each taxon, if the probe selection method is set to `TopN`
        * `FREQLL`: minimum abundance threshold. Default is zero, and is generally left at zero. Can be increased in situations where the in silico taxonomic coverage is not as good as desired. A higher value means increasing the probe design space for the more abundance sequences at the risk of those probes mishybridizing to the lower abundance taxa in the experiment.
        * `BOT`: minimum blast on target rate threshold. Probes with blast on target values lower than this value is considered *promiscuous*, and is not included in the final probe pool.
        * `BARCODESELECTION`: method for barcode assignment to taxa. Available options are:
-         1. MostSimple: assign barcodes by barcode complexity, starting with the simplest ones. Barcodes with more bits are considered more complex. 
+         1. MostSimple: assign barcodes by barcode complexity, starting with the simplest ones. Barcodes with more bits are considered more complex.
          2. Random: randomly assign barcodes to taxa
-         3. MostComplex: assign barcodes by barcode complexity, starting with the most complex ones. Barcodes with more bits are considered more complex. 
+         3. MostComplex: assign barcodes by barcode complexity, starting with the most complex ones. Barcodes with more bits are considered more complex.
        * `BPLC`: minimum blocking probe length threhold. Blocking probes with length lower than this threshold is considered likely to be washed off and do not need to be included in the final probe pool. Default is 15 bp.
 2. FASTA file
    - A FASTA file containing full length 16S sequences of the community to be probed. This file can be curated from public databases, or it can come from your own long read sequencing datasets, such as those from PacBio. The input file should be placed in `DATA_DIR/[SAMPLE]/input/[SAMPLE].fasta`.
@@ -76,4 +79,4 @@ The pipeline requires a local copy of the 16SMicrobial database from NCBI.
    - A folder containing selected probe summary files for each taxa, a concatenated file containing all selected probes, a file containing information for all the blocking probes, as well as text files that can be sent as is to array synthesis vendors for complex oligo pool synthesis.
 
 ## Running the pipeline
-Run `snakemake --configfile hiprfish_config.json -j n`, where `n` is the number of cores to be used. If the pipeline excuted without errors, you should see a file called `simulation_table_test_results.csv` in the same directory where you put the `simulation_table_test.csv` file. It can be useful to run a design at a high taxonomic rank (phylum, for example) to make sure that the pipeline runs correctly with the input files. 
+Run `snakemake --configfile hiprfish_config.json -j n`, where `n` is the number of cores to be used. If the pipeline excuted without errors, you should see a file called `simulation_table_test_results.csv` in the same directory where you put the `simulation_table_test.csv` file. It can be useful to run a design at a high taxonomic rank (phylum, for example) to make sure that the pipeline runs correctly with the input files.
