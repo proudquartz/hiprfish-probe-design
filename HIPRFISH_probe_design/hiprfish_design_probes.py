@@ -399,7 +399,7 @@ def main():
     else:
         taxon = os.path.basename(args.input_file_name).replace('.fasta', '')
         taxon_consensus_sequences_filename = sim_dir + '/consensus/' + taxon + '.consensus.fasta'
-        probe_design(taxon_consensus_sequences_filename, taxon_probes_output_directory, args.target_rank, args.min_tm, args.include_start, args.include_end)
+        probe_design(args.p3d, taxon_consensus_sequences_filename, taxon_probes_output_directory, args.target_rank, args.min_tm, args.include_start, args.include_end)
     taxon_probes_filename = glob.glob(taxon_probes_output_directory + '*_consensus.int')
     for filename in taxon_probes_filename:
         split_taxon_probe_file(filename)
