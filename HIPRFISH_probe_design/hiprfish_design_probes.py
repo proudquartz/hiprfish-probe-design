@@ -190,6 +190,7 @@ def probe_design(primer3_program_path, input_fasta_filename, outdir, target_rank
     settings_file_path = outdir + '/primer3_settings.txt'
     primer3_input_file_path = outdir + '/consensus_primer3_input.txt'
     output_file_path = outdir + '/consensus_probes.fasta'
+    primer3_path = primer3_program_path + 'primer3_core'
 
     try:
         os.path.exists(primer3_input_file_path)
@@ -218,7 +219,7 @@ def probe_design(primer3_program_path, input_fasta_filename, outdir, target_rank
                         'PRIMER_INTERNAL_MAX_NS_ACCEPTED=0',
                         'PRIMER_THERMODYNAMIC_OLIGO_ALIGNMENT=1',
                         'PRIMER_THERMODYNAMIC_TEMPLATE_ALIGNMENT=0',
-                        'PRIMER_THERMODYNAMIC_PARAMETERS_PATH=/programs/primer3-2.3.5/src/primer3_config/',
+                        'PRIMER_THERMODYNAMIC_PARAMETERS_PATH=' + primer3_program_path + 'primer3_config/',
                         'PRIMER_LOWERCASE_MASKING=0',
                         'PRIMER_PICK_ANYWAY=1',
                         '=']
@@ -235,7 +236,7 @@ def probe_design(primer3_program_path, input_fasta_filename, outdir, target_rank
         print('No probe design was rerun')
     else:
         print('Probe design was run')
-        subprocess.check_call([primer3_program_path, '-p3_settings_file', settings_file_path, '-output', output_file_path, '-format_output', primer3_input_file_path])
+        subprocess.check_call([primer3_path, '-p3_settings_file', settings_file_path, '-output', output_file_path, '-format_output', primer3_input_file_path])
 
     return
 

@@ -14,7 +14,7 @@
     },
     "primer3":
     {
-        "path": "/programs/primer3-2.3.5/src/primer3_core"
+        "path": "/programs/primer3-2.3.5/src/"
     },
     "simulations" :
     {
