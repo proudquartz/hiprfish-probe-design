@@ -395,7 +395,7 @@ def main():
         pass
     if args.otu == 'F':
         combine_fasta_files(taxon_consensus_output_directory, consensus_fasta_ext, taxon_consensus_sequences_filename)
-        probe_design(taxon_consensus_sequences_filename, taxon_probes_output_directory, args.target_rank, args.min_tm, args.include_start, args.include_end)
+        probe_design(args.p3d, taxon_consensus_sequences_filename, taxon_probes_output_directory, args.target_rank, args.min_tm, args.include_start, args.include_end)
     else:
         taxon = os.path.basename(args.input_file_name).replace('.fasta', '')
         taxon_consensus_sequences_filename = sim_dir + '/consensus/' + taxon + '.consensus.fasta'
