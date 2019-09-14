@@ -1,6 +1,9 @@
 # HiPR-FISH Probe Design
 Probe design pipeline for HiPR-FISH experiments
 
+## Acknowledgements
+We would like to thank Jakob Wirbel for their help with testing the probe design pipeline. 
+
 ## Overview
 
 This pipeline enables design of complex oligo probe sets used for highly multiplexed FISH experiments on microbial communities. The main pipeline is a snakemake workflow.
